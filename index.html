@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support My Peugeot 504 Dream</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            margin: auto;
+        }
+        .progress {
+            width: 100%;
+            background: #ddd;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        .progress-bar {
+            width: 10%; /* Adjust based on donations received */
+            height: 20px;
+            background: green;
+            border-radius: 5px;
+        }
+        button {
+            background: blue;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Help Me Get My Peugeot 504!</h1>
+        <p>I'm raising funds to buy my dream car, the Peugeot 504. Any contribution helps!</p>
+        <div class="progress">
+            <div class="progress-bar" id="progressBar"></div>
+        </div>
+        <p><strong>Raised: </strong><span id="raisedAmount">$100</span> of $5,000</p>
+        <button onclick="donate()">Donate Now</button>
+        <p>Share this page to spread the word!</p>
+    </div>
+    <script>
+        let raised = 100;
+        const goal = 5000;
+        
+        function donate() {
+            let amount = prompt("Enter donation amount:");
+            amount = parseFloat(amount);
+            if (!isNaN(amount) && amount > 0) {
+                raised += amount;
+                document.getElementById("raisedAmount").innerText = `$${raised}`;
+                let percentage = (raised / goal) * 100;
+                document.getElementById("progressBar").style.width = `${percentage}%`;
+                alert("Thank you for your donation!");
+            } else {
+                alert("Invalid amount.");
+            }
+        }
+    </script>
+</body>
+</html>
